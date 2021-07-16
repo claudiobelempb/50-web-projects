@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+:root {
+  --white: #fff;
+  --light: #fafafa;
+  --gray-20: #222;
+  --gray-30: #333;
+  --gray-50: #555;
+  --red-10: #ff7979;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--gray-30);
+  color: var(--gray-20);
+  font-family: 'Lato', sans-serif;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  background-color: var(--light);
+  transform-origin: top left;
+  transition: transform 0.5s linear;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 50px;
+}
+
+.container.show-nav {
+  transform: rotate(-20deg);
+}
+
+.circle-container {
+  position: fixed;
+  top: -100px;
+  left: -100px;
+}
+
+.circle {
+  background: var(--red-10);
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  position: relative;
+  transform: transform 0.5s linear;
+}
+
+.container.show-nav .circle {
+  transform: rotate(-70deg);
+}
+
+.circle button {
+  cursor: pointer;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  height: 100px;
+  background: transparent;
+  border: 0;
+  color: var(--white);
+}
+
+.circle button:focus {
+  outline: none;
+}
+
+.circle button#open {
+  left: 60%;
+}
+
+.circle button#close {
+  top: 60%;
+  transform: rotate(90deg);
+  transform-origin: top left;
+}
+
+.container.show-nav + nav li {
+  transform: translateX(0);
+  transition-delay: 0.3s;
+}
+
+nav {
+  position: fixed;
+  bottom: 40px;
+  left: 0;
+  z-index: 100;
+}
+
+nav > ul {
+  list-style-type: none;
+  padding-left: 30px;
+}
+
+nav ul > li,
+a {
+  text-transform: uppercase;
+  color: var(--white);
+  margin: 40px 0;
+  transform: translateX(-100%);
+  transition: transform 0.4s ease-in;
+}
+
+nav ul li + li {
+  margin-left: 15px;
+  transform: translateX(-150%);
+}
+
+nav ul li + li + li {
+  margin-left: 30px;
+  transform: translateX(-200%);
+}
+
+nav li a i {
+  font-size: 2rem;
+  margin-right: 0.25rem;
+}
+
+.circle button > i {
+  font-size: 2rem;
+}
+
+.content {
+  max-width: 90%;
+  margin: 50px auto;
+}
+
+.content h1 {
+  margin: 0;
+}
+
+.content small {
+  color: var(--gray-50);
+  font-style: italic;
+}
+
+.content p {
+  color: var(--gray-30);
+  line-height: 1.5;
+}
